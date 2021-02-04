@@ -4,23 +4,31 @@ namespace Console_Tetris_.Net
 {
     class Program
     {
-        public static string blockArea = "■";
-        public static int rows = 0, score = 0, level = 1;
-        private static TetrisFigure tFig;
-        private static TetrisFigure nextTFig;
+        public static string blockArea = "■";   //content of the tetris figure
+        public static int rows = 0, score = 0, level = 1;   //eliminated rows, score and level
+        public static int[,] grid = new int[23, 10];    
+        public static int[,] spawnedBlockLocation = new int[23, 10];    //the location of the block that is falling down
+        private static TetrisFigure tFig;   //figure falling down
+        private static TetrisFigure nextTFig;   //next figure to be spawned
+
         static void Main()
         {
-            //Console.OutputEncoding = System.Text.Encoding.UTF8;
-            drawBorder();
-            getMenu();
-            
+
+            DrawBorder();
+            GetMenu();
+
             tFig = new TetrisFigure();
+            tFig.DisplayFigure();
+            nextTFig = new TetrisFigure();
+
+            TetrisFigure.ActivityLoop();
+
             Console.ReadLine();
 
         }
 
         //Drawing Borders
-        public static void drawBorder()
+        public static void DrawBorder()
         {
             for (int lengthCount = 0; lengthCount <= 22; ++lengthCount)
             {
@@ -37,11 +45,9 @@ namespace Console_Tetris_.Net
 
         }
 
-        
-
         //We create the menu, if you press ESC key, you exit the program
         //else, the game runs
-        public static void getMenu()
+        public static void GetMenu()
         {
 
             Console.SetCursorPosition(4, 5);
@@ -58,7 +64,8 @@ namespace Console_Tetris_.Net
             }
         }
 
-        public static void getDashboard()
+        //Dashboard that shows score, level and the ammount of rows that you eliminate
+        public static void GetDashboard()
         {
             Console.SetCursorPosition(30, 5);
             Console.WriteLine("Level : " + level);
@@ -67,5 +74,6 @@ namespace Console_Tetris_.Net
             Console.SetCursorPosition(30, 9);
             Console.WriteLine("Rows Cleared : " + rows);
         }
+
     }
 }
