@@ -76,7 +76,7 @@ namespace Console_Tetris_.Net
                 for (int j = 0; j < 10; j++)
                 {
                     Console.SetCursorPosition(1 + 2 * j, i);
-                    if (Program.grid[i, j] == 1 )
+                    if (Program.grid[i, j] == 1 | Program.spawnedBlockLocation[i, j] == 1)
                     {
                         Console.SetCursorPosition(1 + 2 * j, i);
                         Console.Write(Program.blockArea);

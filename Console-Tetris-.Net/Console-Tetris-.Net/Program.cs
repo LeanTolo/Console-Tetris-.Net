@@ -31,7 +31,11 @@ namespace Console_Tetris_.Net
             DrawBorder();
             GetMenu();
 
-            tFig = new TetrisFigure();
+            timer.Start();
+            dropTimer.Start();
+
+            nextTFig = new TetrisFigure();
+            tFig = nextTFig;
             tFig.DisplayFigure();
             nextTFig = new TetrisFigure();
 
