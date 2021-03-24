@@ -1,5 +1,7 @@
 # Console Tetris .Net // FULL COMMENTED
 
+### Contributor: Leandro Toloza
+
 ![ConsoleTetrisConsole](TetrisNetConsole.gif)
 
 ## Description:
